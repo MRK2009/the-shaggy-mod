@@ -106,7 +106,7 @@ jobs:
           haxelib run lime rebuild hxcpp
 
       - name: Building
-        run: haxelib run lime build mac -64 -release
+        run: arch -x86_64 haxelib run lime build mac -release
 
       - name: Clear Previous Cache
         uses: actions/github-script@main
