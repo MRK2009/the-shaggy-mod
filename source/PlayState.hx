@@ -4671,13 +4671,17 @@ class PlayState extends MusicBeatState
 				case 720:
 					#if VIDEOS_ALLOWED
 					var video:FlxVideo = new FlxVideo();
-					video.onEndReached.add(function()
+					video.onEndReached.add(function():Void
 					{
 						video.dispose();
 
+						FlxG.removeChild(video);
+
 						endSong();
 					});
-					video.play(Paths.video('zoinks'));
+					FlxG.addChildBelowMouse(video);
+					if (video.load(Paths.video('zoinks')))
+                        new FlxTimer().start(0.001, (_) -> video.play());
 					#else
 					endSong();
 					#end
