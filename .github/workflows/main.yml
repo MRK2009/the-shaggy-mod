@@ -27,8 +27,8 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib install hmm --quiet --skip-dependencies
+          haxelib run hmm install --quiet --skip-dependencies
           haxelib run lime rebuild hxcpp
 
       - name: Building
@@ -101,8 +101,8 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib install hmm --quiet --skip-dependencies
+          haxelib run hmm install --quiet --skip-dependencies
           haxelib run lime rebuild hxcpp
 
       - name: Building
@@ -178,8 +178,8 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib install hmm --quiet --skip-dependencies
+          haxelib run hmm install --quiet --skip-dependencies
           haxelib run lime rebuild hxcpp
 
       - name: Building
@@ -258,8 +258,8 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib install hmm --quiet --skip-dependencies
+          haxelib run hmm install --quiet --skip-dependencies
           haxelib run lime rebuild hxcpp
 
       - name: Configure Android
