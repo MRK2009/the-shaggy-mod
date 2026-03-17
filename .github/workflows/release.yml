@@ -8,42 +8,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Setup Java
-        uses: actions/setup-java@main
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@main
+        id: setup-ndk
         with:
-          java-version: '11'
-          distribution: 'temurin'
+          ndk-version: r25c
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: latest
+          haxe-version: 4.3.7
 
       - name: Installing Libraries
         run: |
-          haxelib install lime --quiet
-          haxelib install openfl --quiet
-          haxelib install flixel --quiet
-          haxelib install flixel-addons --quiet
-          haxelib install flixel-ui --quiet
-          haxelib install hscript --quiet
-          haxelib install hxlua --quiet
-          haxelib git hxvlc https://github.com/MAJigsaw77/hxvlc.git --quiet
-          haxelib install extension-androidtools --quiet
+          haxelib install lime 8.1.0 --quiet
+          haxelib install openfl 9.3.1 --quiet
+          haxelib install flixel 5.4.1 --quiet
+          haxelib install flixel-addons 3.2.1 --quiet
+          haxelib install flixel-ui 2.5.0 --quiet
+          haxelib install hxluajit --quiet
+          haxelib install hxvlc 2.0.1 --quiet
+          haxelib install extension-androidtools 2.1.1 --quiet
 
       - name: Setup Git hxcpp
         run: |
-          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp.git --quiet
-          cd $(haxelib libpath hxcpp)/tools/hxcpp
-          haxe compile.hxml
-          cd ${{github.workspace}}
+          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          haxelib run lime rebuild hxcpp
 
       - name: Configure Android
         run: |
-          haxelib run lime setup -alias -y
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
+          haxelib run lime config JAVA_HOME $JAVA_HOME_17_X64
           haxelib run lime config ANDROID_SETUP true
 
       - name: Building
