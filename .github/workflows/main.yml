@@ -27,9 +27,15 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet --skip-dependencies
-          haxelib run hmm install --quiet --skip-dependencies
-          haxelib run lime rebuild hxcpp
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
+
+      - name: Setup Git hxcpp
+        run: |
+          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          cd $(haxelib libpath hxcpp)/tools/hxcpp
+          haxe compile.hxml
+          cd ${{github.workspace}}
 
       - name: Building
         run: haxelib run lime build windows -release
@@ -101,9 +107,15 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet --skip-dependencies
-          haxelib run hmm install --quiet --skip-dependencies
-          haxelib run lime rebuild hxcpp
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
+
+      - name: Setup Git hxcpp
+        run: |
+          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          cd $(haxelib libpath hxcpp)/tools/hxcpp
+          haxe compile.hxml
+          cd ${{github.workspace}}
 
       - name: Building
         run: arch -x86_64 haxelib run lime build mac -release
@@ -178,10 +190,16 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet --skip-dependencies
-          haxelib run hmm install --quiet --skip-dependencies
-          haxelib run lime rebuild hxcpp
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
 
+      - name: Setup Git hxcpp
+        run: |
+          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          cd $(haxelib libpath hxcpp)/tools/hxcpp
+          haxe compile.hxml
+          cd ${{github.workspace}}
+          
       - name: Building
         run: haxelib run lime build linux -release
 
@@ -258,10 +276,16 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install hmm --quiet --skip-dependencies
-          haxelib run hmm install --quiet --skip-dependencies
-          haxelib run lime rebuild hxcpp
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
 
+      - name: Setup Git hxcpp
+        run: |
+          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          cd $(haxelib libpath hxcpp)/tools/hxcpp
+          haxe compile.hxml
+          cd ${{github.workspace}}
+          
       - name: Configure Android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
