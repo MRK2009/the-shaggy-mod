@@ -32,7 +32,7 @@ jobs:
 
       - name: Setup Git hxcpp
         run: |
-          haxelib git hxcpp https://github.com/FunkinCrew/hxcpp
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
           haxelib run lime rebuild hxcpp
 
       - name: Configure Android
