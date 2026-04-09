@@ -76,6 +76,9 @@ class Main extends Sprite
 		#elseif (ios || switch)
 		Sys.setCwd(System.applicationStorageDirectory);
 		#end
+		#if VIDEOS_ALLOWED
+		hxvlc.util.Handle.init(#if (hxvlc >= "1.8.0")  ['--no-lua'] #end);
+		#end
 
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onUncaughtError);
 
