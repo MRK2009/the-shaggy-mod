@@ -32,7 +32,9 @@
 		},
 		{
 			"name": "hxluajit",
-			"type": "haxelib"
+			"type": "git",
+			"ref": "main",
+			"url": "https://github.com/MAJigsaw77/hxluajit"
 		},
 		{
 			"name": "hxvlc",
