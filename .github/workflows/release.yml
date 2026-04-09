@@ -21,12 +21,12 @@ jobs:
 
       - name: Installing Libraries
         run: |
-          haxelib install lime 8.1.0 --quiet
-          haxelib install openfl 9.3.1 --quiet
-          haxelib install flixel 5.4.1 --quiet
-          haxelib install flixel-addons 3.2.1 --quiet
-          haxelib install flixel-ui 2.5.0 --quiet
-          haxelib install hxlua --quiet --skip-dependencies
+          haxelib install lime 8.1.2 --quiet
+          haxelib install openfl 9.3.3 --quiet
+          haxelib install flixel 5.6.1 --quiet
+          haxelib install flixel-addons 3.2.2 --quiet
+          haxelib install flixel-ui 2.6.0 --quiet
+          haxelib install hxluajit --quiet --skip-dependencies
           haxelib install hxvlc 2.0.1 --quiet --skip-dependencies
           haxelib install extension-androidtools 2.1.1 --quiet --skip-dependencies
 
