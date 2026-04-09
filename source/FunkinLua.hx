@@ -1,9 +1,9 @@
 package;
 
 #if LUA_ALLOWED
-import hxluajit.Lua;
-import hxluajit.LuaL;
-import hxluajit.Types;
+import hxlua.Lua;
+import hxlua.LuaL;
+import hxlua.Types;
 #end
 import flixel.FlxG;
 import flixel.tweens.FlxTween;
