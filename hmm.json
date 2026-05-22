@@ -31,8 +31,10 @@
 			"version": "1.2.4"
 		},
 		{
-			"name": "hxlua",
-			"type": "haxelib"
+			"name": "hxluajit",
+			"type": "git",
+            "ref": "main",
+            "url": "https://github.com/MAJigsaw77/hxluajit"
 		},
 		{
 			"name": "hxvlc",
